@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Qué es PAEC?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <style>
+  body {
+    font-family: 'Fredoka', sans-serif;
+    background: linear-gradient(to right, #abe8ff, #e0f7fa);
+    text-align: center;
+    padding: 10px;
+    color: #333;
+  }
+
+  h1 {
+    color: #0277bd;
+    font-size: 42px;
+    text-shadow: 1px 1px 2px white;
+  }
+
+  h2 {
+    font-size: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #444;
+    line-height: 1.6;
+    background-color: #ffffffb0;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 24px;
+    background-color: #03a9f4;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  a:hover {
+    background-color: #0288d1;
+  }
+
+  img {
+    margin: 20px 0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .contenedor-basura, .contenedor-categoria {
+    width: 180px;
+    min-height: 100px;
+    border: 2px dashed #555;
+    padding: 10px;
+    background-color: #ffffff;
+    font-size: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .basura {
+    padding: 8px;
+    margin: 6px 0;
+    background-color: #e0f7fa;
+    border: 2px solid #4dd0e1;
+    border-radius: 8px;
+    cursor: grab;
+    transition: background-color 0.3s;
+  }
+
+  .basura:hover {
+    background-color: #b2ebf2;
+  }
+
+  /* Colores por categoría */
+  #papel-box { background-color: #d1ecff; }
+  #vidrio-box { background-color: #d2fdd2; }
+  #plastico-box { background-color: #fff59d; }
+  #organico-box { background-color: #ffe0b2; }
+  #metal-box { background-color: #eeeeee; }
+  #electronico-box { background-color: #ffcdd2; }
+
+  #info {
+    margin-top: 15px;
+    font-size: 18px;
+    background-color: #ffffffc5;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+  #mensaje-final {
+    font-size: 22px;
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+  }
+
+  #tiempo {
+    color: #d32f2f;
+    font-weight: bold;
+  }
+</style>
+
+</head>
+<body>
+
+  <h1>¿Qué es el proyecto PAEC?</h1>
+  <h2>El Programa Aula, Escuela y Comunidad (PAEC) en el CONALEP es una estrategia educativa implementada en sus planteles para fortalecer la formación técnica de los estudiantes mediante la vinculación activa con su entorno social y comunitario...</h2>
+
+  <img src="conalep.png" alt="CONALEP">
+
+  <div>
+    <a href="paec.html">← Regresar</a>
+  </div>
+
+  <h1>♻️ Clasifica la Basura</h1>
+  <p>Arrastra los objetos al contenedor correcto antes de que se acabe el tiempo.</p>
+
+  <div id="info">
+    <div id="puntos">Puntos: 0</div>
+    <div id="aciertos">Aciertos: 0 / 10</div>
+    <div id="tiempo">Tiempo restante: 60s</div>
+  </div>
+
+  <div class="contenedor">
+    <div class="contenedor-basura" id="items">
+      <div class="basura" draggable="true" id="plastico-botella">Botella de plástico</div>
+      <div class="basura" draggable="true" id="papel-hoja">Hoja de papel</div>
+      <div class="basura" draggable="true" id="organico-cascara">Cáscara de plátano</div>
+      <div class="basura" draggable="true" id="vidrio-botella">Botella de vidrio</div>
+      <div class="basura" draggable="true" id="metal-lata">Lata de aluminio</div>
+      <div class="basura" draggable="true" id="electronico-pila">Pila usada</div>
+      <div class="basura" draggable="true" id="papel-caja">Caja de cartón</div>
+      <div class="basura" draggable="true" id="organico-manzana">Restos de manzana</div>
+      <div class="basura" draggable="true" id="plastico-bolsa">Bolsa de plástico</div>
+      <div class="basura" draggable="true" id="vidrio-frasco">Frasco de vidrio</div>
+    </div>
+
+    <div class="contenedor-categoria" id="plastico-box">Plástico</div>
+    <div class="contenedor-categoria" id="papel-box">Papel y Cartón</div>
+    <div class="contenedor-categoria" id="organico-box">Orgánico</div>
+    <div class="contenedor-categoria" id="vidrio-box">Vidrio</div>
+    <div class="contenedor-categoria" id="metal-box">Metal</div>
+    <div class="contenedor-categoria" id="electronico-box">Electrónicos</div>
+  </div>
+
+  <div id="mensaje-final"></div>
+
+  <script>
+    const categorias = ["plastico", "papel", "organico", "vidrio", "metal", "electronico"];
+    let puntos = 0;
+    let aciertos = 0;
+    let tiempo = 60;
+    let juegoTerminado = false;
+
+    const puntosDiv = document.getElementById("puntos");
+    const aciertosDiv = document.getElementById("aciertos");
+    const tiempoDiv = document.getElementById("tiempo");
+    const mensajeFinal = document.getElementById("mensaje-final");
+
+    const intervalo = setInterval(() => {
+      if (juegoTerminado) return;
+      tiempo--;
+      tiempoDiv.textContent = `Tiempo restante: ${tiempo}s`;
+      if (tiempo <= 0) terminarJuego(false);
+    }, 1000);
+
+    function terminarJuego(gano) {
+      juegoTerminado = true;
+      clearInterval(intervalo);
+      mensajeFinal.textContent = gano
+        ? "🎉 ¡Felicidades! Clasificaste toda la basura."
+        : "⏰ ¡Tiempo agotado! Intenta de nuevo.";
+    }
+
+    categorias.forEach(cat => {
+      const box = document.getElementById(cat + "-box");
+      box.addEventListener("dragover", e => e.preventDefault());
+      box.addEventListener("drop", e => {
+        const data = e.dataTransfer.getData("text");
+        const item = document.getElementById(data);
+        if (!item || juegoTerminado) return;
+        if (data.includes(cat)) {
+          box.appendChild(item);
+          puntos += 10;
+          aciertos++;
+          puntosDiv.textContent = `Puntos: ${puntos}`;
+          aciertosDiv.textContent = `Aciertos: ${aciertos} / 10`;
+          if (aciertos === 10) terminarJuego(true);
+        } else {
+          puntos -= 5;
+          puntosDiv.textContent = `Puntos: ${puntos}`;
+          alert("❌ Ese no va aquí.");
+        }
+      });
+    });
+
+    document.querySelectorAll(".basura").forEach(item => {
+      item.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text", e.target.id);
+      });
+    });
+  </script>
+</body>
+</html>

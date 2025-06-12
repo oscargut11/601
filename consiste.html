@@ -1,0 +1,143 @@
+<html>
+<head>
+  <title>En qué consiste</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+  body {
+    background: linear-gradient(to bottom, #A8D5BA, #f0fdf4);
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    transition: background 0.5s ease-in-out;
+  }
+
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    color: #1e3a8a;
+    background: linear-gradient(90deg, #72f2eb, #66d3fa);
+    padding: 12px 30px;
+    border-radius: 12px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: inline-block;
+    margin: 30px auto 15px;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 28px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 15px auto;
+    color: #2e2e2e;
+    background-color: #ffffffc7;
+    padding: 15px 20px;
+    border-radius: 10px;
+    animation: fadeInUp 0.8s ease;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 25px auto;
+    max-width: 800px;
+    text-align: left;
+  }
+
+  li {
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    margin: 14px 0;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  li::before {
+    content: "🔧";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-size: 22px;
+  }
+
+  .imagen-3r {
+    display: block;
+    margin: 30px auto;
+    width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
+
+  .imagen-3r:hover {
+    transform: scale(1.03);
+  }
+
+  a {
+    display: inline-block;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 26px;
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+    background-color: #dbeafe;
+    padding: 12px 24px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s;
+  }
+
+  a:hover {
+    background-color: #bfdbfe;
+    text-decoration: underline;
+  }
+
+  /* Animaciones */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+
+<body>
+
+  <h1>OBJETIVO</h1>
+  <h2><i>El objetivo de nuestro proyecto es reutilizar todo equipo que ya no sirva para darle una segunda vida y que tenga otro propósito. En vez de que ese equipo se vaya a la basura, pueda seguir cumpliendo una función.</i></h2>
+
+  <h1>MATERIALES</h1>
+  <h2><i>La mayor parte de los materiales que usaremos serán equipos inservibles o demasiado dañados. Pero algunos otros materiales que podemos usar para crear nuevas cosas podrían ser:</i></h2>
+
+  <ul>
+    <li>Cinta aislante</li>
+    <li>Pegamento fuerte o silicón caliente</li>
+    <li>Pinturas</li>
+  </ul>
+
+  <h1>3R</h1>
+  <img src="s2.jpg" alt="Reciclaje" class="imagen-3r">
+
+  <h2><i>Nuestro proyecto usa las 3R de la siguiente manera:</i></h2>
+  <h2><strong>Reducir:</strong> Minimizar la cantidad de desechos electrónicos al alargar la vida útil de los equipos, evitando que terminen en vertederos prematuramente.</h2>
+  <h2><strong>Reutilizar:</strong> Dar una segunda vida a computadoras, celulares, tablets y otros dispositivos, ya sea reparándolos, reacondicionándolos o adaptándolos para nuevos usos.</h2>
+  <h2><strong>Reciclar:</strong> Cuando un equipo ya no puede ser reparado ni reutilizado, separar correctamente sus componentes (metales, plásticos, tarjetas electrónicas) para hacerles un reciclaje especializado.</h2>
+
+  <a href="paec.html">← Regresar</a>
+
+</body>
+</html>
